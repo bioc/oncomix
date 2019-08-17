@@ -16,14 +16,14 @@
 #' m <- toMatrix(m)
 
 toMatrix <- function(m){
-    if(class(m) == "matrix"){
+    if(is.matrix(m)){
         return(m)
     }
-    if(class(m) == "SummarizedExperiment"){
+    if(is(m, "SummarizedExperiment")){
         m <- assay(m)
         return(m)
     }
-    if(class(m) == "data.frame" | class(m) == "DataFrame"){
+    if(is.data.frame(m) || is(m, "DataFrame")){
         m <- as.matrix(m)
         return(m)
     }
